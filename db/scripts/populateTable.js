@@ -6,7 +6,7 @@ async function populateTable(){
     for(let i = 0; i < resources.length; i++){
         const result = await pool.query(
             `INSERT INTO resources(url, title, type, topic, description) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
-            [resources[i].URL, resources[i].title, resources[i].type, resources[i].topic, resources[i].description]);
+            [resources[i].Url, resources[i].title, resources[i].type, resources[i].topic, resources[i].description]);
             console.log(result.rows)
         }
     }

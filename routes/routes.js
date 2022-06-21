@@ -1,19 +1,23 @@
 import express from "express";
 const router = express.Router();
 import { query } from '../db/index.js';
+import { getAllRec, getByID, deleteByID} from "../models/models.js";
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
-  let allRes = await query(`SELECT * FROM resources`)
-  res.json({ success: true, payload: allRes.rows });
+  let allRes = await getAllRec()
+  console.log(allRes.rows)
+  res.json({ success: true, payload: allRes.rows});
 });
 
 router.get("/:id", async function (req, res) {
   const requestID = Number(req.params.id);
-  let requestRecbyId = await query(`SELECT * FROM resources WHERE Id = ${requestID};`);
+  let requestRecbyId = await getByID(requestID)
   res.json({success: true, payload: requestRecbyId.rows});
 
 });
+
+// post router gives console socket hang up error 
 
 router.post("/", async function(req, res){
   let body = req.body
@@ -22,34 +26,25 @@ router.post("/", async function(req, res){
   res.json({success: true, payload: resourcesPost.rows})
 });
 
+// put router gives console socket hang up error 
+
 router.put("/:id",async(req,res)=>{
   const id = Number(req.params.id);
   const data = req.body;
   const sqlString = `UPDATE resources SET 
   Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5 WHERE id = $5 RETURNING*`
   const result = await query(sqlString,[body.id, body.Url, body.Title, body.Type, body.Topic, body.Description]); 
-  return res.json({
-      success: true,
-      payload: result.rows
-  });
+  res.json({success: true, payload: result.rows });
+})
 
-router.delete
+//delete router works 
 
-export async function deleteMeteorite(id){
-    const res = await query(`
-    DELETE FROM meteorites WHERE  meteorite_id=$1 RETURNING *;`,[id]);
-    return res.rows;
-};
+  router.delete("/:id", async (req, res) => {
+   const id = req.params.id
+   const result = await deleteByID(id)
+   res.json({success: true, payload: result.rows })
+  })
 
-//plan 
-// post route
-// test it with postman 
-// put route 
-// test it with postman
-// patch route
-// test it with postman
-// delete route
-// test it with postman 
 
 
 
