@@ -16,6 +16,14 @@ export async function postRes(data) {
     return resPost
 }
 
+
+export async function updRes(id, data) {
+    const sqlString = `UPDATE resources SET Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5 WHERE id = $6 RETURNING *`
+    const result = await query(sqlString,[data.url, data.title, data.type, data.topic, data.description, id]); 
+    return result
+}
+
+
 export async function deleteByID(id) {
     const sqlString = `DELETE FROM resources WHERE id=$1 RETURNING *`
     const result = await query(sqlString, [id])

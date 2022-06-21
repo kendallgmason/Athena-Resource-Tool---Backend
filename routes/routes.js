@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 import { query } from '../db/index.js';
-import { getAllRes, getByID, postRes, deleteByID} from "../models/models.js";
+import { getAllRes, getByID, postRes, updRes, deleteByID} from "../models/models.js";
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
@@ -31,9 +31,7 @@ router.post("/", async function(req, res){
 router.put("/:id", async(req,res)=>{
   const id = Number(req.params.id);
   const data = req.body;
-  const sqlString = `UPDATE resources SET Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5 WHERE id = $6 RETURNING *`
-  const result = await query(sqlString,[data.url, data.title, data.type, data.topic, data.description, id]); 
-  console.log(result)
+  const result = updRes(id, data)
   res.json({success: true, payload: result.rows });
 })
 
