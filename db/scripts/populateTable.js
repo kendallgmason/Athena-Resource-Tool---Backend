@@ -1,5 +1,5 @@
 import { pool } from '../index.js';
-import { resources } from '../../libs/data.js';
+import  resources  from '../../libs/data.js';
 
 async function populateTable(){
 

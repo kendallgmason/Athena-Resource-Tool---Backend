@@ -9,6 +9,7 @@
     "dev": "nodemon app.js",
     "db:createTable": "node -r dotenv/config ./db/scripts/createTable.js",
     "db:populateTable": "node -r dotenv/config ./db/scripts/populateTable.js"
+   
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

@@ -1,5 +1,4 @@
-const resourceTypes = ['Game/App', 'Article', 'Documentation'];
-​
+
 const resources = [
     {
         URL: 'https://learngitbranching.js.org/',
@@ -30,3 +29,5 @@ const resources = [
         description: "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
     }
 ]
+
+export default resources
