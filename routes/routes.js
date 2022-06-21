@@ -8,15 +8,20 @@ router.get("/", async function (req, res, next) {
   res.json({ success: true, payload: allRes.rows });
 });
 
+router.get("/:id", async function (req, res) {
+  const requestID = Number(req.params.id);
+  let requestRecbyId = await query(`SELECT * FROM resources WHERE Id = ${requestID};`);
+  res.json({success: true, payload: requestRecbyId.rows});
+
+}
+)
+
+router.get("/", async function (req, res) {
+  let allTitles = await query(`SELECT title FROM resources`);
+  res.json({success: true, payload: allTitles});
+}
+)
+
+
 export default router;
 
-
-// animalRouter.get('/', async function (req, res) {
-//   let allAnimals = await getAllAnimals();
-//   res.json({ success: true, payload: allAnimals.rows,});
-// });
-
-// export async function getAllAnimals() {
-//   let allAnimals = await query(`SELECT * FROM animals;`);
-//   return allAnimals;
-// }
