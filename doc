@@ -3,18 +3,40 @@ documentation
 TO GET ALL RESOURCES: GET http://localhost:3000/resources/
 
 TO GET RESOURCES BY ID: GET http://localhost:3000/resources/{id}
+
 e.g GET http://localhost:3000/resources/5
 {
 "id": 5,
-"url": "PUT",
-"title": "Learn Git Branching",
+"url": "someurl.com",
+"title": "Some Title",
 "type": "Game/App",
-"topic": "Git",
-"description": "LearnGitBranching is a git repository visualizer, sandbox, and a series of educational tutorials and challenges. Its primary purpose is to help developers understand git through the power of visualization (something that's absent when working on the command line). This is achieved through a game with different levels to get acquainted with the different git commands."
+"topic": "RESTful API",
+"description": "Description about resource."
 }
 
 TO ADD TO DATABASE: POST http://localhost:3000/resources
 
+e.g POST http://localhost:3000/resources
+{
+"url": "newurl.com",
+"title": "New Title",
+"type": "Game/App",
+"topic": "RESTful API",
+"description": "Your description here."
+}
+
 TO UPDATE DATABASE: PUT http://localhost:3000/resources/{id}
 
+e.g PUT http://localhost:3000/resources/5
+
+{
+"url": "updatedurl.com",
+"title": "Some Title",
+"type": "Game/App",
+"topic": "RESTful API",
+"description": "Description about resource."
+}
+
 TO DELETE ENTRY: DELETE http://localhost:3000/resources/{id}
+
+e.g DELETE http://localhost:3000/resources/5
