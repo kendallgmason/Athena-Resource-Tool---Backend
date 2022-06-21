@@ -13,71 +13,33 @@ router.get("/:id", async function (req, res) {
   let requestRecbyId = await query(`SELECT * FROM resources WHERE Id = ${requestID};`);
   res.json({success: true, payload: requestRecbyId.rows});
 
-}
-)
+});
 
 router.post("/", async function(req, res){
   let body = req.body
   const sqlString = `INSERT INTO resources ( Url , Title, Type, Topic, Description ) VALUES ($1. $2, $3, $4, $5);`
   const resourcesPost = await query(sqlString, [body.Url, body.Title, body.Type, body.Topic, body.Description])
-  res.json({success: true, payload: resourcesPost})
-})
+  res.json({success: true, payload: resourcesPost.rows})
+});
 
-// router.post("/", function (req, res){
-//   let body = req.body
-//   users.push(body)
-//   const responseObject = { success: true, payload: body }
-//   res.json(responseObject)
-// })
+router.put("/:id",async(req,res)=>{
+  const id = Number(req.params.id);
+  const data = req.body;
+  const sqlString = `UPDATE resources SET 
+  Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5 WHERE id = $5 RETURNING*`
+  const result = await query(sqlString,[body.id, body.Url, body.Title, body.Type, body.Topic, body.Description]); 
+  return res.json({
+      success: true,
+      payload: result.rows
+  });
 
-// use lines 19 and 20
-// line 21 is referencing an array= we want to interact with database
-// our line 22 is res.json and payload will be variable declared on line 21 
+router.delete
 
-// animalRouter.post("/", async function (req, res){
-//   let body = req.body
-//   const sqlString = `INSERT INTO animals ( animal_species , animal_name)
-//   VALUES ($1, $2);`
-//   const resPostAnimal = await query(sqlString, [body.animal_species, body.animal_name])
-//   let responseObject = {
-//     success: true,
-//     payload: resPostAnimal,
-//   };
-//   res.json(responseObject)
-//   console.log(responseObject)
-// })
-
-
-
-
-// router.put("/:id", function(req,res){
-//   let id = req.params.id
-//   let body = req.body
-//   let updatedUser = {}
-//   for (let i=0; i<users.length; i++) {
-//       if (Number(id) === users[i].id) {
-//           users[i] = body;
-//           updatedUser = users[i]
-//           break
-//       }
-//   }
-//   const response = { success: true, payload: updatedUser }
-//   res.json(response)
-// })
-
-// router.delete("/:id", function(req, res){
-//   let id = req.params.id;
-//   let deletedUser = {}
-//   for (let i = 0; i<users.length; i++) {
-//       if (Number(id) === users[i].id) { 
-//           deletedUser = users.splice(users[i].id)
-//           break
-//       }
-//   }
-//   let response = { success: true, payload: deletedUser }
-//   res.json(response)
-// })
-
+export async function deleteMeteorite(id){
+    const res = await query(`
+    DELETE FROM meteorites WHERE  meteorite_id=$1 RETURNING *;`,[id]);
+    return res.rows;
+};
 
 //plan 
 // post route
