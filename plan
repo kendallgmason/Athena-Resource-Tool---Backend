@@ -17,6 +17,7 @@
 // write patch route
 // write delete route
 // separate our functionality into models
+// in the read.me = documentation 
 
 
 CRUD: // will use the query function to make our routes
