@@ -14,7 +14,3 @@ export const pool = new pg.Pool({
     return pool.query(text, params, callback);
   }
 
-//   const res = await pool.query("SELECT NOW()");
-// await pool.end();
-// console.log(res.rows);
-// console.log("the path is correct");

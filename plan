@@ -4,7 +4,7 @@
 // X - create a connection pool 
 // X - get information to populate the tables - 5 x tech links
 // X - set up our query function (pool.query) that talks to the database
-//will plan structure of our table 
+// X - will plan structure of our table 
 //write the database scripts - 1 - create table 2 - populate table - 3 drop table 
 //ensure express is set up correctly and listening on port 
 //plan our routes using CRUD method - by lunch
