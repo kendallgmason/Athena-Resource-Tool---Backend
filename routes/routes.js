@@ -20,9 +20,9 @@ router.get("/:id", async function (req, res) {
 // post router gives console socket hang up error 
 
 router.post("/", async function(req, res){
-  let body = req.body
-  const sqlString = `INSERT INTO resources ( Url , Title, Type, Topic, Description ) VALUES ($1. $2, $3, $4, $5);`
-  const resourcesPost = await query(sqlString, [body.Url, body.Title, body.Type, body.Topic, body.Description])
+  let data = req.body
+  const sqlString = `INSERT INTO resources ( Url , Title, Type, Topic, Description ) VALUES ($1, $2, $3, $4, $5) RETURNING *;`
+  const resourcesPost = await query(sqlString, [data.url, data.title, data.type, data.topic, data.description])
   res.json({success: true, payload: resourcesPost.rows})
 });
 
@@ -32,8 +32,8 @@ router.put("/:id",async(req,res)=>{
   const id = Number(req.params.id);
   const data = req.body;
   const sqlString = `UPDATE resources SET 
-  Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5 WHERE id = $5 RETURNING*`
-  const result = await query(sqlString,[body.id, body.Url, body.Title, body.Type, body.Topic, body.Description]); 
+  Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5 WHERE id = $5 RETURNING *`
+  const result = await query(sqlString,[data.id, data.Url, data.Title, data.Type, data.Topic, data.Description]); 
   res.json({success: true, payload: result.rows });
 })
 
