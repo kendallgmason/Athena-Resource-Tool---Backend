@@ -5,8 +5,30 @@
 // X - get information to populate the tables - 5 x tech links
 // X - set up our query function (pool.query) that talks to the database
 // X - will plan structure of our table 
-//write the database scripts - 1 - create table 2 - populate table - 3 drop table 
-//ensure express is set up correctly and listening on port 
-//plan our routes using CRUD method - by lunch
-//will use the query function to make our routes
-//separate our functionality into models
+// X write the database scripts 
+  X // 1 - create table 
+  X // 2 - populate table 
+// X ensure express is set up correctly and listening on port 
+// X plan our routes using CRUD method 
+// write get route
+// go over SQL queries and make a few queries to test db -by lunch 
+// write post route
+// write put route
+// write patch route
+// write delete route
+// separate our functionality into models
+
+
+CRUD: // will use the query function to make our routes
+
+READ/GET 
+- router.get by id/topic/type
+CREATE/POST
+- router.post 
+- insert into SQL request 
+UPDATE/PUT or PATCH
+- router.put/patch
+- SQL requests
+DELETE/DELETE
+- router.delete
+- SQL request 
