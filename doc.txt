@@ -1,10 +1,13 @@
 documentation
 
-TO GET ALL RESOURCES: GET http://localhost:3000/resources/
+**TO GET ALL RESOURCES: GET http://localhost:3000/resources/
 
-TO GET RESOURCES BY ID: GET http://localhost:3000/resources/{id}
+This returns the entire contents of the database.
+
+**TO GET RESOURCES BY ID: GET http://localhost:3000/resources/{id}
 
 e.g. GET http://localhost:3000/resources/4
+This returns:
 
 {
     "success": true,
@@ -20,9 +23,10 @@ e.g. GET http://localhost:3000/resources/4
     ]
 }
 
-TO GET RESOURCES BY TITLE: GET http://localhost:3000/resources?title=value
+**TO GET RESOURCES BY TITLE: GET http://localhost:3000/resources?title=value
 
 e.g. GET http://localhost:3000/resources?title=react
+This returns:
 {
     "success": true,
     "payload": [
@@ -45,29 +49,32 @@ e.g. GET http://localhost:3000/resources?title=react
     ]
 }
 
-TO ADD TO DATABASE: POST http://localhost:3000/resources
+**TO ADD TO DATABASE: POST http://localhost:3000/resources
 
 e.g. POST http://localhost:3000/resources
+
+Post an object with this structure:
 {
 "url": "newurl.com",
-"title": "New Title",
-"type": "Game/App",
-"topic": "RESTful API",
+"title": "A Title",
+"type": "A Type",
+"topic": "A Topic",
 "description": "Your description here."
 }
 
-TO UPDATE DATABASE: PUT http://localhost:3000/resources/{id}
+**TO UPDATE DATABASE: PUT http://localhost:3000/resources/{id}
 
 e.g. PUT http://localhost:3000/resources/5
 
+Update using an object with this structure:
 {
 "url": "updatedurl.com",
-"title": "Some Title",
-"type": "Game/App",
-"topic": "RESTful API",
-"description": "Description about resource."
+"title": "A Title",
+"type": "A Type",
+"topic": "A Topic",
+"description": "Your description here."
 }
 
-TO DELETE ENTRY: DELETE http://localhost:3000/resources/{id}
+**TO DELETE ENTRY FROM DATABASE: DELETE http://localhost:3000/resources/{id}
 
 e.g. DELETE http://localhost:3000/resources/5
