@@ -21,6 +21,6 @@
 
 // X refactor model code so it returns payload
 // X make a drop table script 
-// query request 
+// X query request 
 
-** separated routes that work into model, put and post router does not work so not added to models folder 
+21/06 ** separated routes that work into model, put and post router does not work so not added to models folder 

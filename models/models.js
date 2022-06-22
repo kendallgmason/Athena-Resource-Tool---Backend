@@ -6,9 +6,18 @@ export async function getAllRes() {
     return allRes
 }
 
+//get by id
 export async function getByID(requestID) {
     let requestRecbyId = await query(`SELECT * FROM resources WHERE Id = ${requestID};`);
     return requestRecbyId
+}
+
+//get by title 
+
+export async function getByTitle(title) {
+    const sqlString = `SELECT * FROM resources WHERE title ILIKE '%${title}%'`
+    let result = await query(sqlString)
+    return result
 }
 
 //post

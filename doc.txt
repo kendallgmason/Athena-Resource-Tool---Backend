@@ -1,0 +1,73 @@
+documentation
+
+TO GET ALL RESOURCES: GET http://localhost:3000/resources/
+
+TO GET RESOURCES BY ID: GET http://localhost:3000/resources/{id}
+
+e.g. GET http://localhost:3000/resources/4
+
+{
+    "success": true,
+    "payload": [
+        {
+            "id": 4,
+            "url": "https://linguinecode.com/post/react-usereducer-vs-usestate",
+            "title": "React useReducer vs React useState: When to use one over the other?",
+            "type": "Article",
+            "topic": "React",
+            "description": "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
+        }
+    ]
+}
+
+TO GET RESOURCES BY TITLE: GET http://localhost:3000/resources?title=value
+
+e.g. GET http://localhost:3000/resources?title=react
+{
+    "success": true,
+    "payload": [
+        {
+            "id": 2,
+            "url": "https://testing-library.com/docs/react-testing-library/cheatsheet/",
+            "title": "A cheatsheet for the React Testing Library",
+            "type": "Documentation",
+            "topic": "React",
+            "description": "A short guide to all the exported functions in React Testing Library"
+        },
+        {
+            "id": 4,
+            "url": "https://linguinecode.com/post/react-usereducer-vs-usestate",
+            "title": "React useReducer vs React useState: When to use one over the other?",
+            "type": "Article",
+            "topic": "React",
+            "description": "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
+        }
+    ]
+}
+
+TO ADD TO DATABASE: POST http://localhost:3000/resources
+
+e.g. POST http://localhost:3000/resources
+{
+"url": "newurl.com",
+"title": "New Title",
+"type": "Game/App",
+"topic": "RESTful API",
+"description": "Your description here."
+}
+
+TO UPDATE DATABASE: PUT http://localhost:3000/resources/{id}
+
+e.g. PUT http://localhost:3000/resources/5
+
+{
+"url": "updatedurl.com",
+"title": "Some Title",
+"type": "Game/App",
+"topic": "RESTful API",
+"description": "Description about resource."
+}
+
+TO DELETE ENTRY: DELETE http://localhost:3000/resources/{id}
+
+e.g. DELETE http://localhost:3000/resources/5

@@ -1,13 +1,20 @@
 import express from "express";
 const router = express.Router();
 import { query } from '../db/index.js';
-import { getAllRes, getByID, postRes, updRes, deleteByID} from "../models/models.js";
+import { getAllRes, getByID, getByTitle, postRes, updRes, deleteByID} from "../models/models.js";
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
+  let title = req.query.title
+  if (title === undefined) {
   let allRes = await getAllRes()
-  console.log(allRes.rows)
-  res.json({ success: true, payload: allRes.rows});
+  let response = res.json({ success: true, payload: allRes.rows});
+  return response
+  } else {
+    let result = await getByTitle(title)
+    let response = res.json({success: true, payload: result.rows }) 
+    return response 
+  }
 });
 
 router.get("/:id", async function (req, res) {
@@ -22,7 +29,6 @@ router.get("/:id", async function (req, res) {
 router.post("/", async function(req, res){
   let data = req.body
   const result = await postRes(data)
-  console.log(result.rows)
   res.json({success: true, payload: result.rows})
 });
 
@@ -32,17 +38,17 @@ router.put("/:id", async(req,res)=>{
   const id = Number(req.params.id);
   const data = req.body;
   const result = await updRes(id, data)
-  console.log(result.rows)
   res.json({success: true, payload: result.rows });
 })
 
 
 
-  router.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
    const id = req.params.id
    const result = await deleteByID(id)
    res.json({success: true, payload: result.rows })
   })
+
 
 
 
