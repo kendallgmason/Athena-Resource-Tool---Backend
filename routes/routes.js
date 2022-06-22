@@ -21,7 +21,7 @@ router.get("/:id", async function (req, res) {
 
 router.post("/", async function(req, res){
   let data = req.body
-  const result = postRes(data)
+  const result = await postRes(data)
   console.log(result.rows)
   res.json({success: true, payload: result.rows})
 });
@@ -31,7 +31,8 @@ router.post("/", async function(req, res){
 router.put("/:id", async(req,res)=>{
   const id = Number(req.params.id);
   const data = req.body;
-  const result = updRes(id, data)
+  const result = await updRes(id, data)
+  console.log(result.rows)
   res.json({success: true, payload: result.rows });
 })
 

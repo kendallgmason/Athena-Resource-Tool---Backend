@@ -19,5 +19,8 @@
 // X separate our functionality into models**
 // X in the read.me = documentation 
 
+// refactor model code so it returns payload
+// make a drop table script 
+// query request 
 
 ** separated routes that work into model, put and post router does not work so not added to models folder 
