@@ -22,15 +22,15 @@ export async function getByTitle(title) {
 
 //post
 export async function postRes(data) {
-    const sqlString = `INSERT INTO resources ( Url , Title, Type, Topic, Description ) VALUES ($1, $2, $3, $4, $5) RETURNING *;`
-    const resPost = await query(sqlString, [data.url, data.title, data.type, data.topic, data.description])
+    const sqlString = `INSERT INTO resources ( Url , Title, Type, Topic, Description, isFavourite) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`
+    const resPost = await query(sqlString, [data.url, data.title, data.type, data.topic, data.description, data.isFavourite])
     return resPost
 }
 
 //put
 export async function updRes(id, data) {
-    const sqlString = `UPDATE resources SET Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5 WHERE id = $6 RETURNING *`
-    const result = await query(sqlString,[data.url, data.title, data.type, data.topic, data.description, id]); 
+    const sqlString = `UPDATE resources SET Url = $1 , Title = $2, Type = $3, Topic = $4, Description = $5, isFavourite = $6 WHERE id = $7 RETURNING *`
+    const result = await query(sqlString,[data.url, data.title, data.type, data.topic, data.description, data.isFavourite, id]); 
     return result
 }
 

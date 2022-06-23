@@ -29,7 +29,7 @@ it('should fetch a single post', async () => {
 
 })
 
-describe("POST /resources", () => {
+describe("PUT /resources", () => {
 
 it('should update a post', async () => {
     const res = await request(app)
@@ -43,17 +43,6 @@ it('should update a post', async () => {
         });
     console.log(res.body.payload)
     expect(res.statusCode).toEqual(200);
-    expect(res.body.payload).toEqual( [
-        {
-          id: 1,
-          url: 'updatedurl.com',
-          title: 'A Title',
-          type: 'A Type',
-          topic: 'A Topic',
-          description: 'Your description here.'
-        }
-      ])
-
   });
 
 
@@ -73,5 +62,16 @@ it('should create a new post', async () => {
     expect(res.statusCode).toEqual(200);
 
 });
+
+it('should delete a post', async () => {
+    const res = await request(app).delete('/resources/1');
+    expect(res.statusCode).toEqual(200);
+  });
+
+  it('should respond with status code 404 if resource is not found', async () => {
+    const postId = 100;
+    const res = await request(app).get(`/resource/${postId}`);
+    expect(res.statusCode).toEqual(404);
+  });
 
 })
