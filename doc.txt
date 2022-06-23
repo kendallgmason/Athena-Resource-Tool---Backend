@@ -19,6 +19,7 @@ This returns:
             "type": "Article",
             "topic": "React",
             "description": "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
+            "isFavourite": false 
         }
     ]
 }
@@ -37,6 +38,7 @@ This returns:
             "type": "Documentation",
             "topic": "React",
             "description": "A short guide to all the exported functions in React Testing Library"
+            "isFavourite": false 
         },
         {
             "id": 4,
@@ -45,6 +47,7 @@ This returns:
             "type": "Article",
             "topic": "React",
             "description": "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
+            "isFavourite": false 
         }
     ]
 }
@@ -60,6 +63,7 @@ Post an object with this structure:
 "type": "A Type",
 "topic": "A Topic",
 "description": "Your description here."
+"isFavourite": false 
 }
 
 **TO UPDATE DATABASE: PUT http://localhost:3000/resources/{id}
@@ -73,6 +77,7 @@ Update using an object with this structure:
 "type": "A Type",
 "topic": "A Topic",
 "description": "Your description here."
+"isFavourite": Boolean 
 }
 
 **TO DELETE ENTRY FROM DATABASE: DELETE http://localhost:3000/resources/{id}
