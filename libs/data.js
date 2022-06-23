@@ -1,7 +1,7 @@
 
 const resources = [
     {
-        URL: "https://learngitbranching.js.org/",
+        url: "https://learngitbranching.js.org/",
         title: 'Learn Git Branching',
         type: 'Game/App',
         topic: 'Git',
@@ -9,7 +9,7 @@ const resources = [
         isFavourite: "false"
     },
     {
-        URL: "https://testing-library.com/docs/react-testing-library/cheatsheet/",
+        url: "https://testing-library.com/docs/react-testing-library/cheatsheet/",
         title: 'A cheatsheet for the React Testing Library',
         type: 'Documentation',
         topic: 'React',
@@ -17,7 +17,7 @@ const resources = [
         isFavourite: "false"
     },
     {
-        URL: "https://github.com/testing-library/jest-dom/blob/main/README.md",
+        url: "https://github.com/testing-library/jest-dom/blob/main/README.md",
         title: 'A list of custom jest matchers to test the state of the DOM',
         type: 'Documentation',
         topic: 'Jest',
@@ -25,7 +25,7 @@ const resources = [
         isFavourite: "false"
     },
     {
-        URL: "https://linguinecode.com/post/react-usereducer-vs-usestate",
+        url: "https://linguinecode.com/post/react-usereducer-vs-usestate",
         title: 'React useReducer vs React useState: When to use one over the other?',
         type: 'Article',
         topic: 'React',
