@@ -23,7 +23,7 @@ export async function getByTitle(title) {
 //post
 export async function postRes(data) {
     const sqlString = `INSERT INTO resources ( Url , Title, Type, Topic, Description, isFavourite) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`
-    const resPost = await query(sqlString, [data.url, data.title, data.type, data.topic, data.description, data.isFavourite])
+    const resPost = await query(sqlString, [data.url, data.title, data.type, data.topic, data.description, 'false'])
     return resPost
 }
 
