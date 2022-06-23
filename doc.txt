@@ -67,7 +67,7 @@ Post an object with this structure:
 "description": "Your description here."
 }
 
-The value of isFavourite is automatically set to "false"
+The value of id is automatically set and the value of isFavourite is automatically set to "false"
 
 **TO UPDATE DATABASE: PUT http://localhost:3000/resources/{id}
 
