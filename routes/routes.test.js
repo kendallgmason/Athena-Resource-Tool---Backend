@@ -6,7 +6,6 @@ import app from '../app';
 
 describe("GET /resources", () => {
 
-
 it("should respond with a 200 status code", async () => {
     await request(app)
     .get("/resources")
@@ -49,7 +48,7 @@ it('should update a post', async () => {
 })
 
 describe("CREATE /resources", () => {
-it('should create a new post', async () => {
+it('should add another resource to database', async () => {
     const res = await request(app)
       .post('/resources')
       .send({
@@ -63,15 +62,19 @@ it('should create a new post', async () => {
 
 });
 
+describe("DELETE /resources", () => {
 it('should delete a post', async () => {
     const res = await request(app).delete('/resources/1');
     expect(res.statusCode).toEqual(200);
   });
+});
 
-  it('should respond with status code 404 if resource is not found', async () => {
+describe("ERROR /resources", () => {
+  it('should respond with status code 404 if path is incorrect', async () => {
     const postId = 100;
     const res = await request(app).get(`/resource/${postId}`);
     expect(res.statusCode).toEqual(404);
   });
 
 })
+});

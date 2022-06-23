@@ -19,10 +19,12 @@ This returns:
             "type": "Article",
             "topic": "React",
             "description": "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
-            "isFavourite": false 
+            "isFavourite": "false"
         }
     ]
 }
+
+The value of isFavourite is a string instead of a boolean.
 
 **TO GET RESOURCES BY TITLE: GET http://localhost:3000/resources?title=value
 
@@ -38,7 +40,7 @@ This returns:
             "type": "Documentation",
             "topic": "React",
             "description": "A short guide to all the exported functions in React Testing Library"
-            "isFavourite": false 
+            "isFavourite": "false"
         },
         {
             "id": 4,
@@ -47,7 +49,7 @@ This returns:
             "type": "Article",
             "topic": "React",
             "description": "An article about what React.useReducer is used for, and when to use it instead ofReact.useState"
-            "isFavourite": false 
+            "isFavourite": "false"
         }
     ]
 }
@@ -63,8 +65,9 @@ Post an object with this structure:
 "type": "A Type",
 "topic": "A Topic",
 "description": "Your description here."
-"isFavourite": false 
 }
+
+The value of isFavourite is automatically set to "false"
 
 **TO UPDATE DATABASE: PUT http://localhost:3000/resources/{id}
 
@@ -77,8 +80,10 @@ Update using an object with this structure:
 "type": "A Type",
 "topic": "A Topic",
 "description": "Your description here."
-"isFavourite": Boolean 
+"isFavourite": "true/false"
 }
+
+Reminder: the value of isFavourite is a string so update this value with a lowercase string.
 
 **TO DELETE ENTRY FROM DATABASE: DELETE http://localhost:3000/resources/{id}
 
