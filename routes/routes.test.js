@@ -20,18 +20,18 @@ it ("should return json content type", async () => {
       .expect('Content-Type', /json/)
       .expect(200)
 })
-it('should fetch a single post', async () => {
-    const postId = 1;
-    const res = await request(app).get(`/resources/${postId}`);
-    expect(res.statusCode).toEqual(200);
+it('should fetch a single resource', async () => {
+    const resId = 1;
+    const result = await request(app).get(`/resources/${resId}`);
+    expect(result.statusCode).toEqual(200);
   });
 
 })
 
 describe("PUT /resources", () => {
 
-it('should update a post', async () => {
-    const res = await request(app)
+it('should update a resource', async () => {
+    const result = await request(app)
       .put('/resources/1')
       .send({
         "url": "updatedurl.com",
@@ -40,8 +40,8 @@ it('should update a post', async () => {
         "topic": "A Topic",
         "description": "Your description here."
         });
-    console.log(res.body.payload)
-    expect(res.statusCode).toEqual(200);
+    console.log(result.body.payload)
+    expect(result.statusCode).toEqual(200);
   });
 
 
@@ -49,7 +49,7 @@ it('should update a post', async () => {
 
 describe("CREATE /resources", () => {
 it('should add another resource to database', async () => {
-    const res = await request(app)
+    const result = await request(app)
       .post('/resources')
       .send({
         "url": "newurl.com",
@@ -58,22 +58,22 @@ it('should add another resource to database', async () => {
         "topic": "A Topic",
         "description": "Your description here."
       });
-    expect(res.statusCode).toEqual(200);
+    expect(result.statusCode).toEqual(200);
 
 });
 
 describe("DELETE /resources", () => {
-it('should delete a post', async () => {
-    const res = await request(app).delete('/resources/1');
-    expect(res.statusCode).toEqual(200);
+it('should delete a resource', async () => {
+    const result = await request(app).delete('/resources/1');
+    expect(result.statusCode).toEqual(200);
   });
 });
 
 describe("ERROR /resources", () => {
   it('should respond with status code 404 if path is incorrect', async () => {
-    const postId = 100;
-    const res = await request(app).get(`/resource/${postId}`);
-    expect(res.statusCode).toEqual(404);
+    const resId = 100;
+    const result = await request(app).get(`/resource/${resId}`);
+    expect(result.statusCode).toEqual(404);
   });
 
 })

@@ -19,10 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/resources', router);
-app.use("/resources/titles", router)
-app.use("/resources/:id", router)
-app.use('/title', router);
-app.use("/resources?key=value", router)
+
 
 app.get('/', function (req, res) {
   res.json({

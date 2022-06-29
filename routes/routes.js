@@ -4,7 +4,7 @@ import { query } from '../db/index.js';
 import { getAllRes, getByID, getByTitle, postRes, updRes, deleteByID} from "../models/models.js";
 
 /* GET users listing. */
-router.get("/", async function (req, res, next) {
+router.get("/", async function (req, res) {
   let title = req.query.title
   if (title === undefined) {
   let allRes = await getAllRes()
@@ -19,8 +19,8 @@ router.get("/", async function (req, res, next) {
 
 router.get("/:id", async function (req, res) {
   const requestID = Number(req.params.id);
-  let requestRecbyId = await getByID(requestID)
-  res.json({success: true, payload: requestRecbyId.rows});
+  let requestResbyId = await getByID(requestID)
+  res.json({success: true, payload: requestResbyId.rows});
 
 });
 
