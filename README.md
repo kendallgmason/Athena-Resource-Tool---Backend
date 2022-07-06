@@ -1,8 +1,10 @@
  <!-- ![](https://i.imgur.com/XgsioqF.jpg) -->
 
  <center>
-<img src="https://i.imgur.com/XgsioqF.jpg" style="width: 200px" />
+<img src="./Screenshot 2022-07-06 at 23.08.26.png" style="width: 1000px" />
 </center>
+
+</br></br>
 
 </br></br>
 
