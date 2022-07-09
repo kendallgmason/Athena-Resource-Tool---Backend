@@ -42,6 +42,15 @@ This tool can be used to search for technical resource links, add those links to
 
 </br>
 
+</br>
+
+# 🧰 My Contributions To The Project
+
+On this project I worked as a team with 4 others in an agile way, leading the stand ups and retros every day, using a Trello board to do it, created the documentation for this project , I created some of the React components and some of the CRUD routes on the backend, I also was able to implement React Testing Library files to test many of the components. 
+
+
+</br> 
+
 ![GitHub last commit](https://img.shields.io/github/last-commit/SchoolOfCode/w9_frontend-project-shabana-jenan-dan-kendall-simran)
 ![GitHub contributors](https://img.shields.io/github/contributors/SchoolOfCode/w9_frontend-project-shabana-jenan-dan-kendall-simran)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/SchoolOfCode/w9_frontend-project-shabana-jenan-dan-kendall-simran)
