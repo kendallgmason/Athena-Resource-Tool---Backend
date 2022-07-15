@@ -6,7 +6,7 @@
   "scripts": {
     "dbindex": "node ./db/index.js",
     "start": "node server/index.js",
-    "build": "cd buddy && npm install && npm run build",
+    "build": "npm run build",
     "dev": "nodemon app.js",
     "db:createTable": "node -r dotenv/config ./db/scripts/createTable.js",
     "db:populateTable": "node -r dotenv/config ./db/scripts/populateTable.js",
