@@ -1,9 +1,6 @@
 {
   "name": "w9-backend-project-shabana-jenan-dan-kendall-simran",
   "version": "0.0.0",
-  "engines": {
-    "node": "16.x"
-  },
   "private": true,
   "type": "module",
   "scripts": {
