@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use('/resources', router);
 
 
-app.get('/', function (req, res) {
+app.get('/resources', function (req, res) {
   res.json({
     success: true,
     message: 'Test route up and running!',
