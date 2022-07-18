@@ -8,11 +8,8 @@ import logger  from 'morgan';
 
 import router  from './routes/routes.js';
 
-const PORT = process.env.PORT || '8080';
-
 const app = express();
-
-app.set("port", PORT);
+const PORT = process.env.port || 3001;
 
 app.use(logger('dev'));
 app.use(cors());
