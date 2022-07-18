@@ -6,7 +6,6 @@
   "scripts": {
     "dbindex": "node ./db/index.js",
     "start": "node app.js",
-    "build":"webpack",
     "dev": "nodemon app.js",
     "db:createTable": "node -r dotenv/config ./db/scripts/createTable.js",
     "db:populateTable": "node -r dotenv/config ./db/scripts/populateTable.js",
