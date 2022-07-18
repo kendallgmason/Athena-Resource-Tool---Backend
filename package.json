@@ -1,8 +1,10 @@
 {
   "name": "w9-backend-project-shabana-jenan-dan-kendall-simran",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": "12.11.1"
+    },
   "scripts": {
     "dbindex": "node ./db/index.js",
     "start": "node app.js",
