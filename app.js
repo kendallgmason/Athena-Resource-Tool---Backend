@@ -9,6 +9,7 @@ import logger  from 'morgan';
 import router  from './routes/routes.js';
 
 const app = express();
+const PORT = process.env.PORT || 5000
 
 app.use(logger('dev'));
 app.use(cors());
